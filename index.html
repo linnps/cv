@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dr. Lin's Homepage</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <style media="screen">
+      /**********Carousel style css**********/
+      .carousel-fade .carousel-inner .item {
+        opacity: 0;
+        transition-property: opacity;
+      }
+
+      .carousel-fade .carousel-inner .active opacity: 1;
+      }
+
+      .carousel-fade .carousel-inner .active.left,
+      .carousel-fade .carousel-inner .active.right {
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .carousel-fade .carousel-inner .next.left,
+      .carousel-fade .carousel-inner .prev.right {
+        opacity: 1;
+      }
+
+      .carousel-fade .carousel-control {
+        z-index: 2;
+      }
+
+      /*
+      WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+      now override the 3.3 new styles for modern browsers & apply opacity
+      */
+      @media all and (transform-3d),
+      (-webkit-transform-3d) {
+
+        .carousel-fade .carousel-inner>.item.next,
+        .carousel-fade .carousel-inner>.item.active.right {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+
+        .carousel-fade .carousel-inner>.item.prev,
+        .carousel-fade .carousel-inner>.item.active.left {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+
+        .carousel-fade .carousel-inner>.item.next.left,
+        .carousel-fade .carousel-inner>.item.prev.right,
+        .carousel-fade .carousel-inner>.item.active {
+          opacity: 1;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+    </style>
+
+    <style>
+
+
+      .bubbletitle {
+        font-family: 'Exo 2', sans-serif;
+        font-size: 8.5vw;
+        color: white;
+        padding: 5rem 0;
+        text-shadow: 0px 4px 48px rgba(255, 255, 255, 0.2);
+      }
+
+      .container2 {
+        position: relative;
+        display: -webkit-box;
+        display: flex;
+        align-content: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#00c9ff), to(#92fe9d)), url(images/long/electronics7.jpg);
+        background-image: linear-gradient(to bottom, #00c9ff 0%, #92fe9d 100%), url(images/long/electronics7.jpg);
+        background-blend-mode: multiply;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      .bubbles-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100%;
+        max-width: 15rem;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        opacity: 0.75;
+        overflow: visible;
+      }
+
+      .bubbles {
+        width: 100%;
+        height: auto;
+      }
+
+      .bubbles circle {
+        stroke: white;
+        fill: none;
+      }
+
+      .bubbles>g>g:nth-of-type(3n) circle {
+        stroke: #87f5fb;
+      }
+
+      .bubbles>g>g:nth-of-type(4n) circle {
+        stroke: #8be8cb;
+      }
+
+      .bubbles-large {
+        overflow: visible;
+      }
+
+      .bubbles-large>g {
+        -webkit-transform: translateY(2048px);
+        transform: translateY(2048px);
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      .bubbles-large g:nth-of-type(1) {
+        -webkit-animation: up 6.5s infinite;
+        animation: up 6.5s infinite;
+      }
+
+      .bubbles-large g:nth-of-type(1) g {
+        -webkit-transform: translateX(350px);
+        transform: translateX(350px);
+      }
+
+      .bubbles-large g:nth-of-type(1) circle {
+        -webkit-animation: wobble 3s infinite ease-in-out;
+        animation: wobble 3s infinite ease-in-out;
+      }
+
+      .bubbles-large g:nth-of-type(2) {
+        -webkit-animation: up 5.25s 250ms infinite;
+        animation: up 5.25s 250ms infinite;
+      }
+
+      .bubbles-large g:nth-of-type(2) g {
+        -webkit-transform: translateX(450px);
+        transform: translateX(450px);
+      }
+
+      .bubbles-large g:nth-of-type(2) circle {
+        -webkit-animation: wobble 3s infinite ease-in-out;
+        animation: wobble 3s infinite ease-in-out;
+      }
+
+      .bubbles-large g:nth-of-type(3) {
+        -webkit-animation: up 6s 750ms infinite;
+        animation: up 6s 750ms infinite;
+      }
+
+      .bubbles-large g:nth-of-type(3) g {
+        -webkit-transform: translateX(700px);
+        transform: translateX(700px);
+      }
+
+      .bubbles-large g:nth-of-type(3) circle {
+        -webkit-animation: wobble 3s infinite ease-in-out;
+        animation: wobble 3s infinite ease-in-out;
+      }
+
+      .bubbles-large g:nth-of-type(4) {
+        -webkit-animation: up 5.5s 1.5s infinite;
+        animation: up 5.5s 1.5s infinite;
+      }
+
+      .bubbles-large g:nth-of-type(4) g {
+        -webkit-transform: translateX(500px);
+        transform: translateX(500px);
+      }
+
+      .bubbles-large g:nth-of-type(4) circle {
+        -webkit-animation: wobble 3s infinite ease-in-out;
+        animation: wobble 3s infinite ease-in-out;
+      }
+
+      .bubbles-large g:nth-of-type(5) {
+        -webkit-animation: up 6.5s 4s infinite;
+        animation: up 6.5s 4s infinite;
+      }
+
+      .bubbles-large g:nth-of-type(5) g {
+        -webkit-transform: translateX(675px);
+        transform: translateX(675px);
+      }
+
+      .bubbles-large g:nth-of-type(5) circle {
+        -webkit-animation: wobble 3s infinite ease-in-out;
+        animation: wobble 3s infinite ease-in-out;
+      }
+
+      .bubbles-small {
+        overflow: visible;
+      }
+
+      .bubbles-small>g {
+        -webkit-transform: translateY(2048px);
+        transform: translateY(2048px);
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      .bubbles-small g circle {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      .bubbles-small g:nth-of-type(1) {
+        -webkit-animation: up 5.25s infinite;
+        animation: up 5.25s infinite;
+      }
+
+      .bubbles-small g:nth-of-type(1) g {
+        -webkit-transform: translateX(350px);
+        transform: translateX(350px);
+      }
+
+      .bubbles-small g:nth-of-type(1) circle {
+        -webkit-animation: wobble 3s infinite ease-in-out;
+        animation: wobble 3s infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(2) {
+        -webkit-animation: up 5.75s infinite;
+        animation: up 5.75s infinite;
+      }
+
+      .bubbles-small g:nth-of-type(2) g {
+        -webkit-transform: translateX(750px);
+        transform: translateX(750px);
+      }
+
+      .bubbles-small g:nth-of-type(2) circle {
+        -webkit-animation: wobble 3s infinite ease-in-out;
+        animation: wobble 3s infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(3) {
+        -webkit-animation: up 5.25s 250ms infinite;
+        animation: up 5.25s 250ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(3) g {
+        -webkit-transform: translateX(350px);
+        transform: translateX(350px);
+      }
+
+      .bubbles-small g:nth-of-type(3) circle {
+        -webkit-animation: wobble 3s 250ms infinite ease-in-out;
+        animation: wobble 3s 250ms infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(4) {
+        -webkit-animation: up 5.75s 325ms infinite;
+        animation: up 5.75s 325ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(4) g {
+        -webkit-transform: translateX(180px);
+        transform: translateX(180px);
+      }
+
+      .bubbles-small g:nth-of-type(4) circle {
+        -webkit-animation: wobble 3s 325ms infinite ease-in-out;
+        animation: wobble 3s 325ms infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(5) {
+        -webkit-animation: up 6s 125ms infinite;
+        animation: up 6s 125ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(5) g {
+        -webkit-transform: translateX(350px);
+        transform: translateX(350px);
+      }
+
+      .bubbles-small g:nth-of-type(5) circle {
+        -webkit-animation: wobble 3s 250ms infinite ease-in-out;
+        animation: wobble 3s 250ms infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(6) {
+        -webkit-animation: up 5.13s 250ms infinite;
+        animation: up 5.13s 250ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(6) g {
+        -webkit-transform: translateX(650px);
+        transform: translateX(650px);
+      }
+
+      .bubbles-small g:nth-of-type(6) circle {
+        -webkit-animation: wobble 3s 125ms infinite ease-in-out;
+        animation: wobble 3s 125ms infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(7) {
+        -webkit-animation: up 6.25s 350ms infinite;
+        animation: up 6.25s 350ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(7) g {
+        -webkit-transform: translateX(480px);
+        transform: translateX(480px);
+      }
+
+      .bubbles-small g:nth-of-type(7) circle {
+        -webkit-animation: wobble 3s 325ms infinite ease-in-out;
+        animation: wobble 3s 325ms infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(8) {
+        -webkit-animation: up 7s 200ms infinite;
+        animation: up 7s 200ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(8) g {
+        -webkit-transform: translateX(330px);
+        transform: translateX(330px);
+      }
+
+      .bubbles-small g:nth-of-type(8) circle {
+        -webkit-animation: wobble 3s 325ms infinite ease-in-out;
+        animation: wobble 3s 325ms infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(9) {
+        -webkit-animation: up 6.25s 233ms infinite;
+        animation: up 6.25s 233ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(9) g {
+        -webkit-transform: translateX(230px);
+        transform: translateX(230px);
+      }
+
+      .bubbles-small g:nth-of-type(9) circle {
+        -webkit-animation: wobble 3s 275ms infinite ease-in-out;
+        animation: wobble 3s 275ms infinite ease-in-out;
+      }
+
+      .bubbles-small g:nth-of-type(10) {
+        -webkit-animation: up 6s 900ms infinite;
+        animation: up 6s 900ms infinite;
+      }
+
+      .bubbles-small g:nth-of-type(10) g {
+        -webkit-transform: translateX(730px);
+        transform: translateX(730px);
+      }
+
+      .bubbles-small g:nth-of-type(10) circle {
+        -webkit-animation: wobble 2s 905ms infinite ease-in-out;
+        animation: wobble 2s 905ms infinite ease-in-out;
+      }
+
+      @-webkit-keyframes wobble {
+        33% {
+          -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+        }
+
+        66% {
+          -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+        }
+      }
+
+      @keyframes wobble {
+        33% {
+          -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+        }
+
+        66% {
+          -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+        }
+      }
+
+      @-webkit-keyframes up {
+        0% {
+          opacity: 0;
+        }
+
+        10%,
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          -webkit-transform: translateY(-1024px);
+          transform: translateY(-1024px);
+        }
+      }
+
+      @keyframes up {
+        0% {
+          opacity: 0;
+        }
+
+        10%,
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          -webkit-transform: translateY(-1024px);
+          transform: translateY(-1024px);
+        }
+      }
+    </style>
+    <script>
+      window.console = window.console || function(t) {};
+    </script>
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar">
+        <a class="navbarButton" href="pageTwo.html">Guest Registration(Demo)</a>
+        <a class="navbarButton" href="LinResume.pdf">My Resume</a>
+        <a class="navbarButton" href="tcad.html">TCAD/Simulation</a>
+        <a class="navbarButton" href="cad.html">CAD/Illustration</a>
+
+
+      </nav>
+
+      <nav class="navbar2">
+        <a class="navbarButton2first" href="index.html">Home</a>
+        <a class="navbarButton2" href="#achivementH">Achievement Highlights</a>
+        <a class="navbarButton2" href="#awardH">Award Highlights</a>
+
+        <a class="navbarButton2" href="semiconductor.html">Semiconductor</a>
+        <a class="navbarButton2" href="biosensor.html">Biosensor</a>
+        <a class="navbarButton2" href="pageThree.html">Software</a>
+        <a class="navbarButton2" href="publications.html">Publications</a>
+      </nav>
+    </header>
+    <div class="container" style="width: 100%; margin: 0; padding: 0;">
+      <div class="carousel slide carousel-fade" data-interval="5000" data-ride="carousel" id="myCarousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+          <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active"><img src="images/long/electronics.jpg" style="width:100%"></div>
+          <div class="item">
+            <a href="">
+              <img src="images/long/electronics2.jpg" title="Click for more information" style="width:100%">
+            </a>
+          </div>
+          <div class="item">
+            <a href="">
+              <img src="images/long/electronics3.jpg" title="Click for more information" style="width:100%">
+            </a>
+          </div>
+          <div class="item">
+            <a href="">
+              <img src="images/long/electronics4.jpg" title="Click for more information" style="width:100%">
+            </a>
+          </div>
+          <div class="item">
+            <a href="">
+              <img src="images/long/electronics5.jpg" title="Click for more information" style="width:100%">
+            </a>
+          </div>
+          <div class="item">
+            <a href="">
+              <img src="images/long/electronics6.jpg" title="Click for more information" style="width:100%">
+            </a>
+          </div>
+
+        </div><a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button" style="display: none;"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a>
+        <a class="right carousel-control" data-slide="next" href="#myCarousel" role="button" style="display: none;"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class="sr-only">Next</span></a>
+      </div>
+    </div>
+    <div class="saleSection">
+      <h2 class="subtitle">Dr. Lin's Homepage</h2>
+
+      <div class="mainSalePortion">
+        <img class="mainPic" src="images/ProfilePic.jpg" alt="Main Picture">
+        <div class="fadeText">
+          <h1 id="greeting">Hi there,</h1>
+          <p id="greeting-2"></p>
+          <p id="greeting-3"></p>
+          <script type="text/javascript">
+          $('#greeting').animate({
+          'opacity': 0
+          }, 3000, function() {
+          $(this).text("I'm Ander,");
+          }).animate({
+          'opacity': 1
+          }, 1000);
+          $('#greeting-2').animate({
+          'opacity': 0
+          }, 5000, function() {
+          $(this).text("a hardware, software engineer,");
+          }).animate({
+          'opacity': 1
+          }, 1000);
+          $('#greeting-3').animate({
+          'opacity': 0
+          }, 5000, function() {
+          $(this).text("and a designer.");
+          }).animate({
+          'opacity': 1
+          }, 7000);
+          </script>
+        </div>
+        <p class="MainPicDescription">Accomplished, versatile bilingual Research & Development Engineer highly regarded for 16 years of experience in semiconductor, biomedical, computer science, and nanotechnology engineering fields. Seasoned in academic research and accustomed to leading projects that produce cutting-edge commercial products. Strong communicator who is able to translate stakeholder requirements into actionable objectives for a skilled team to complete on time and under budget. Academic qualifications include a Doctor of Philosophy in Materials Engineering with a 4.0 GPA from Purdue University.</p>
+
+        <div class="buttonPortion">
+          <div class="buttons">
+            <button class="button" type="button" name="button">
+              <span class="buyingButton"><a href="https://www.linkedin.com/in/li-kai-lin/">Linkedin</a></span>
+            </button>
+            <button class="button2" type="button" name="button2">
+              <span class="buyingButton"><a href="https://portfolium.com/Li-kaiLin1579/access/5b1c80f071f98">Portfolium</a></span>
+            </button>
+          </div>
+        </div>
+        <h2 class="subtitle2">Education</h2>
+
+        <hr>
+        <table>
+          <tr>
+            <td class="type">Purdue University (2019):</td>
+            <td>Doctor of Philosophy (PhD) – Materials Engineering (Overall GPA: 4.0/4.0)</td>
+          </tr>
+          <tr>
+            <td class="type">Auburn University (2020):</td>
+            <td>Bachelor of Science – Computer Science (Overall GPA: 4.0/4.0)</td>
+          </tr>
+          <tr>
+            <td class="type">University of Sou. Cal. (2015):</td>
+            <td>Master of Science – Materials Engineering (Major GPA: 3.9/4.0)</td>
+          </tr>
+          <tr>
+            <td class="type">Nat'l Cheng Kung U. (2009):</td>
+            <td>Master of Science – Nanotechnology (Overall GPA: 4.0/4.0)</td>
+          </tr>
+          <tr>
+            <td class="type">Nat'l Cheng Kung U. (2007):</td>
+            <td>Bachelor of Science (double majors)– MSE & CIVIL (Major GPA: 3.8/4.0)</td>
+          </tr>
+          <tr>
+            <td class="type">Publications (within 4 years)</td>
+            <td>20 (a proof for a perfect team player)</td>
+          </tr>
+        </table>
+      </div>
+      <h3 class="subtitle4"> </h3>
+      <hr class="hr2">
+
+      <div class="subItemsPortion">
+
+        <h3 class="subtitle4" id="achivementH">Achievement Highlights</h3>
+
+      </div>
+      <div class="similarProducts">
+        <table class="table1">
+          <tr>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/MOSFET fabrication.jpeg" alt="MOSFET fabrication">
+              <p class="littlePicDescription"><a href="#">MOSFET fabrication</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span>View</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/Silver_goldelectrodes1.png" alt="Electrochemical Sensors">
+              <p class="littlePicDescription"><a href="#">Biosensors</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span>View</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/Cover.jpg" alt="Journal Cover">
+              <p class="littlePicDescription"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/smll.201970128">Journal Cover (Small If:11.45)</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/smll.201970128">View</a></span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/RD Internship.jpg" alt="RD Internship">
+              <p class="littlePicDescription"><a href="#">TSMC R&D Internship</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span>View</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="saleSection">
+      <script id="th-iframe-script" src="chrome-extension://ofdopmlmgifpfkijadehmhjccbefaeec/assets/comms/commsiframe.js"></script>
+      <div class="container2">
+        <div class="bubbles-container">
+          <svg class="bubbles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 701 1024" style="overflow: visible;">
+            <g class="bubbles-large" stroke-width="7">
+              <g>
+                <g transform="translate(10 940)">
+                  <circle cx="35" cy="35" r="35"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(373 940)">
+                  <circle cx="35" cy="35" r="35"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(408 940)">
+                  <circle cx="35" cy="35" r="35"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(621 940)">
+                  <circle cx="35" cy="35" r="35"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(179 940)">
+                  <circle cx="35" cy="35" r="35"></circle>
+                </g>
+              </g>
+            </g>
+            <g class="bubbles-small" stroke-width="4">
+              <g>
+                <g transform="translate(147 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(255 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(573 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(429 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(91 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(640 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(321 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(376 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(376 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(497 984)">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h1 class=bubbletitle>Science</h1>
+      </div>
+
+
+
+
+      <h3 class="subtitle4"> </h3>
+      <hr class="hr2">
+
+      <div class="subItemsPortion">
+
+        <h3 class="subtitle4" id="awardH">Award Highlights</h3>
+
+      </div>
+      <div class="similarProducts">
+        <table class="table1">
+          <tr>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/award1.jpg" alt="Phi Tau Phi">
+              <p class="littlePicDescription"><a href="#">Scholastic Honor (1st Place at NCKU)</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span>View</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/award2.jpg" alt="Thesis Poster Competition">
+              <p class="littlePicDescription"><a href="#">Thesis Poster Competition</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span>View</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/award3.jpg" alt="Golden Key Honor Society Chapter at Purdue (Top 15%)">
+              <p class="littlePicDescription"><a href="">Honor Society (1st Place at Purdue)</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/smll.201970128">View</a></span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+            <td class="tableCell">
+              <img class="smallPic" src="images/thumbs/award4.jpg" alt="Dean's List">
+              <p class="littlePicDescription"><a href="#">Dean's List</a></p>
+              <button class="smallPicButton" type="button" name="button">
+                <span>View</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Like</span>
+              </button>
+              <button class="smallPicButton" type="button" name="button">
+                <span>Unlike</span>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <footer>
+      <p class="copyright">All images are copyright reserved. © 2020 Copyright</p>
+    </footer>
+  </body>
+
+</html>
