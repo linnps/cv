@@ -5,4 +5,5 @@ https://linnps.github.io/cv/index.html
 Personal Front End Web Page created by HTML, CSS and JavaScript
 <hr>
 <img src="displayOne.png" alt="Display1">
+<hr>
 <img src="displayTwo.png" alt="Display2">
