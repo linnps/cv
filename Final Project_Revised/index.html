@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<script src='https://d3js.org/d3.v7.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js'></script>
+<!--	<script src="https://unpkg.com/topojson-client@3"></script>-->
+	<title>Housing Trends</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	
+</head>
+<body>
+
+	<div class="top">
+		<div class="header">
+			<h1>2012-2018 Property Value Evaluation Panel</h1>
+
+		</div>
+		<div class="header2">
+				<h4>Real Estate, Homes for Sale, MLS Listings, Agents</h4>
+		</div>
+	</div>
+	
+
+	<div class="slideshow-container">
+		<div class="slide" id="slide1">
+			<div class="dropdown-container">
+				<!-- Add the filter button within the #histogram container -->
+				<label for="isoCodeDropdown">City:</label>
+				
+				<select id="isoCodeDropdown"></select>
+				
+				<br>
+				<label for="startDate">Start Date:</label>
+				<input type="date" id="startDate" value="2018-01-01"> <!-- Set the default value in the "yyyy-MM-dd" format -->
+
+				<label for="endDate">End Date:</label>
+				<input type="date" id="endDate" value="2023-07-25"> <!-- Set the default value to the maximum date available in the dataset -->
+		
+				<br>
+			</div>
+			<div class="chart-container">
+				<div id="plot">
+					<svg id="histogram"></svg>
+				</div>
+				<div class="caption">
+					<p>In this captivating data visualization, we embark on a remarkable journey through time, delving into the fascinating realm of real estate. Witness the mesmerizing variation of housing prices in diverse cities, unfolding over the period from 2012 to 2018.
+
+						With every city, we unfold a unique story of growth and transformation, as property values ebb and flow with the changing tides of the market. Step by step, we traverse the years, from the very dawn of 2012, through times of prosperity and challenges, and finally, to the brink of 2018, each data point painting a vivid picture of the real estate landscape.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="slide" id="slide2">
+			<div class="dropdown-container">
+				<div id="cityCheckboxes"></div>
+				<br>
+				<label for="startDate2">Start Date:</label>
+				<input type="date" id="startDate2" value="2012-01-01">
+
+				<label for="endDate2">End Date:</label>
+				<input type="date" id="endDate2" value="2018-01-01">
+				<br>
+			</div>
+			<div class="chart-container">
+				<div id="plot2"> <!-- Updated ID to plot2 -->
+					<svg id="histogram-slide2"></svg>
+				</div>
+				<div class="caption">
+					<p id="page2Description">In this data visualization comparing house market growing, San Francisco Bay Area, including San Francisco and San Jose, obviously has shown outstanding house price growth over the past six years. The plotted lines for both cities ascend significantly, indicating a strong upward trend in housing prices. San Francisco, in particular, exhibits substantial price appreciation, making it one of the most competitive housing markets in the dataset.
+
+						On the other hand, when contrasting the impressive growth of the Bay Area with Chicago, we observe a relatively slower pace of house price appreciation. Chicago's housing market shows a more gradual increase in prices over time, suggesting a more stable and less volatile market compared to the San Francisco Bay Area.
+
+						The remaining cities, including Boston, San Diego, Washington DC, Los Angeles, and Seattle, display varying degrees of house price growth within the given period. Some of these cities demonstrate steady and continuous price increases, while others experience fluctuations in their housing markets.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="slide" id="slide2_1"> <!-- Updated ID to slide2_1 -->
+			<div class="dropdown-container">
+				<label for="startDate2_1">Start Date:</label>
+				<input type="date" id="startDate2_1" value="2012-01-01">
+
+				<label for="endDate2_1">End Date:</label>
+				<input type="date" id="endDate2_1" value="2018-01-01">
+				<br>
+			</div>
+			<div class="chart-container">
+				<div id="plot2_1"> <!-- Updated ID to plot2 -->
+					<svg id="histogram-slide2_1"></svg>
+				</div>
+				<div class="caption">
+					<p id="page2_1Description">The data analysis reveals significant variations in housing prices among the cities under consideration. San Francisco stands out as having the most remarkable housing price growth, with an impressive maximum price of $1,295,000 and a minimum price of $685,000, resulting in a substantial price range of $610,000. In comparison, Boston displays a slightly lower price range of $335,000, with the highest housing price reaching $719,900 and the lowest at $384,900. San Diego follows suit with a price range of $279,100, reflecting a maximum price of $629,000 and a minimum of $349,900. Chicago exhibits a more modest price range of $185,100, with a maximum price of $325,000 and a minimum price of $139,900. San Jose, on the other hand, boasts a significantly wider range of $516,000, having a maximum price of $942,500 and a minimum price of $426,500. Washington DC showcases a price range of $199,722.5, reaching a maximum price of $599,000 and a minimum price of $399,277.5. Los Angeles reveals a price range of $389,000, encompassing a maximum price of $729,000 and a minimum price of $340,000. Lastly, Seattle displays a price range of $320,033, with the highest housing price at $650,000 and the lowest at $329,967. Overall, San Francisco's housing market appears to be experiencing the most significant growth, making it a focal point for real estate investors and homebuyers alike.</p>
+				</div>
+			</div>
+		</div>		
+
+
+		<div class="slide" id="slide3">
+			
+			<svg id="histogram-page3"></svg>
+			<div class="caption">
+				<p id="page3Description">In this data visualization of the housing market, we have explored the trends in both house pricing growth and the number of homes sold in different regions. The data reveals some interesting insights, particularly in the San Francisco Bay area.
+
+					While the San Francisco Bay area exhibits significant house pricing growth, we observe that the number of homes sold in this region is relatively low compared to other major cities like Chicago, Los Angeles, and San Diego. This contrast raises intriguing questions and leads to the formulation of a hypothesis.
+
+					My hypothesis is that the limited number of homes sold in the San Francisco Bay area may be attributed to various factors, such as a competitive real estate market, high demand leading to increased property values, and potential challenges in affordability for prospective buyers. Additionally, other factors like housing supply constraints and the presence of a strong rental market may also contribute to the observed trend.</p>
+			</div>
+		</div>
+			
+			
+		
+
+		<button class="navigation-btn prev-btn">
+			<img src="img/icons/previous.png" alt="Previous">
+		</button>
+		<button class="navigation-btn next-btn">
+			<img src="img/icons/next.png" alt="Next">
+		</button>
+	</div>
+	
+	
+	<div class="footer">
+		<h4 class="footer2">Hover on data for more details</h4>
+			<h4>Infinite Power</h4>
+	</div>
+	
+	<script src="js/page1.js"></script>
+	<script src="js/page2.js"></script>
+	<script src="js/page2_1.js"></script>
+	<script src="js/page3.js"></script>
+	<script src="js/slideShow.js"></script>
+</body>
+</html>

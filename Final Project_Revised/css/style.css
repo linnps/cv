@@ -1,0 +1,245 @@
+body {
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    letter-spacing: 1px;
+}
+.top {
+    background-color: #45a3de;
+    color: #fff;
+}
+.header {
+    font-style: italic;
+    text-align: center;
+    margin-left: 10px;
+}
+.footer {
+    margin-top: 100px;
+    text-align: center;
+    margin-left: 0px;
+    background-color: #45a3de;
+    color: #fff;
+}
+.header2 {
+    text-align: center;
+    margin-left: 10px;
+}
+.navbar {
+    background-color: #f8f8f8;
+    text-align: center;
+    border: solid #ececeb;
+    border-width: 1px;
+    padding: 360px;
+    margin-bottom: 0;
+}
+.navbarButton {
+    color: gray;
+    text-decoration: none;
+    border: Solid transparent;
+    border-width: 1px;
+    margin: 0 0 0 0;
+    font-weight: bold;
+}
+
+.navbarButtonfirst {
+    color: gray;
+    text-decoration: none;
+    border: Solid transparent;
+    border-width: 1px;
+    margin: 0 1px 0 0;
+    border-left: 0;
+    font-weight: bold;
+}
+
+/*...*/
+
+#slides .slides-container {
+    width: 100%;
+    height: 100%;
+}
+
+/*.........g*/
+/* CSS for slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    margin: auto;
+    background-color: transparent;
+}
+
+/* CSS for individual slides */
+.slide {
+    height: 500px;
+    text-align: center;
+}
+
+/* CSS for slide captions */
+.slide .caption {
+    position: relative;
+    bottom: 61px;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    padding: 1px;
+    background-color: transparent;
+}
+
+/* CSS for navigation buttons */
+.navigation-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.navigation-btn img {
+    width: 100%;
+    height: 100%;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.dropdown-container {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 1;
+}
+
+.dropdown-container:hover .dropdown-content {
+    display: block;
+}
+
+.chart-container {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px; /* Add some space between the chart and the paragraph */
+}
+
+#histogram {
+    /* Add some space between the SVG container and the caption */
+    margin-bottom: 20px;
+}
+
+/* Add CSS styles for the filter button */
+#isoCodeDropdown {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+.caption {
+    /* Center the caption horizontally */
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px; /* Add some space between the chart and the caption */
+}
+
+/* Style for checkboxes */
+#cityCheckboxes {
+
+}
+
+#cityCheckboxes label {
+    display: block;
+}
+
+/* Style for the chart container */
+#plot {
+    margin: auto;
+    width: 100%;
+}
+
+#plot2 {
+
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+
+
+/* Style for the SVG container */
+#histogram-slide2 {
+    display: block;
+    margin: auto;
+
+    overflow: visible;
+}
+.checkItem {
+    position: relative;
+    display: inline-flex;
+}
+#page2Description {
+    margin-top: 2%;
+    font-size: 2%;
+}
+
+#histogram-page3 {
+    display: block;
+    margin-top: 4%;
+    margin-left: 30%;
+
+    overflow: visible;
+}
+
+
+#page3Description {
+    margin-top: 8%;
+    font-size: 2%;    
+}
+.footer2 {
+    margin-top: 100px;
+    text-align: center;
+    margin-left: 0px;
+    background-color: gray;
+    color: #fff;
+}
+
+
+
+#plot2_1 {
+
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+#page2_1Description {
+    margin-top: 2%;
+    font-size: 2%;
+}
+
+#histogram-slide2_1 {
+    display: block;
+    margin: auto;
+
+    overflow: visible;
+}
